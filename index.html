@@ -14,16 +14,37 @@
             <a href="#">About Us</a>
             <a href="#">Contact Us</a>
         </div>
-
+        
         <div class="search">
+            
             <form action="#">
                 <input type="text" name="searching" id="search" placeholder="Enter Movie Name">
                 <button type="submit" onclick="searchMovie()">Search</button>
+
+
+                <a href="javascript:void(0)" class="genrebtn" onclick="toggleGenre()">Genre</a>
             </form>
         </div>
         
     </header>
     
+    <!-- The Genere -->
+    <div id="genre" class="genre">
+        <div class="genreList">
+            <a href="#">Action</a>
+            <a href="#">Action</a>
+            <a href="#">Action</a>
+            <a href="#">Action</a>
+            <a href="#">Action</a>
+            <a href="#">Action</a>
+            <a href="#">Action</a>
+        </div>
+        <div class="genrebuttons">
+            <button type="submit" id="genreSubmit">Submit</button>
+            <button type="reset" id="reset">Reset</button>
+        </div>
+    </div>
+
     <!-- The overlay -->
     <div id="myNav" class="overlay">
 

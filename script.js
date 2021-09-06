@@ -73,3 +73,12 @@ function openNav() {
     document.getElementById("myNav").style.width = "0%";
   }
 
+function toggleGenre() {
+    const checking = document.getElementById("genre").style;
+    if (checking.display == "none"){
+        checking.display = "block"
+    } else {
+        console.log(checking);
+        checking.display = "none"
+    }
+}
