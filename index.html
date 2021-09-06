@@ -3,34 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies World</title>
+
     <link rel="stylesheet" href="style.css">
-    <title>Movie App</title>
 </head>
 <body>
-    
-    <!-- Creating Search Option -->
     <header>
-        <form  id="form">
-            <input type="text" placeholder="Search" id="search" class="search">
-        </form>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="search">
+            <form action="#">
+                <input type="text" name="searching" id="search" placeholder="Enter Movie Name">
+                <button type="submit" onclick="searchMovie()">Search</button>
+            </form>
+        </div>
+        
     </header>
+    
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
 
-    <!-- Creating Place for Genres-->
-    <div id="tags"></div>
-
-   
-
-    <!-- Creating Main Section where we want to display MovieList -->
-    <main id="main"></main>
-
-    <!---->
-    <div class="pagination">
-        <div class="page" id="prev">Previous Page</div>
-        <div class="current" id="current">1</div>
-        <div class="page" id="next">Next Page</div>
-
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+        <!-- Overlay content -->
+        <div class="overlay-content"></div>
+    
     </div>
+    
+    <!-- Use any element to open/show the overlay navigation menu -->
+    <span onclick="openNav()"></span>
 
-    <script src="script.js"></script>
+    <main id="main">
+        <!-- <div class="card">
+            <img src="" alt="">
+            <div class="movie-info">
+                <h3>${title}</h3>
+                <span class="${getColor(vote_average)}">${vote_average}</span>
+            </div>
+            <div class="pop">
+                <button class="details" id="${id}">Details</button>
+            </div>
+        </div> -->
+    </main>
 </body>
+<script src="script.js"></script>
 </html>
