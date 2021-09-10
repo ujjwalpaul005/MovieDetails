@@ -114,9 +114,6 @@ function getMovies(url) {
               prev.classList.remove('disabled');
               next.classList.remove('disabled')
             }
-
-            tagsEl.scrollIntoView({behavior : 'smooth'})
-
         }else{
             main.innerHTML= `<h1>No Results Found</h1>`
         }
@@ -166,7 +163,7 @@ function searchMovie(){
     // selectedGenre=[];
     // setGenre();
     if(searchTerm) {
-        getMovies(searchURL+'&query='+searchTerm)
+        getMovies(searchURL+'&query='+searchTerm);
     }else{
         getMovies(API_URL);
     }
