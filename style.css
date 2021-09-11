@@ -21,48 +21,54 @@ header{
 }
 .nav{
     
-    width: 400px; /*upto 800px */
+    width: 53%; /*upto 800px */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .nav a{
-    color: mintcream;
+    color: rgb(0, 4, 255);
     text-decoration: none;
+    cursor: pointer;
 }
 .nav a:hover{
     transform: scale(105%);
 }
 
-.search form{
+.topLevel form{
     display: flex;
 }
 #search{
     font-size: 1rem;
 }
-.search input{
+.topLevel input{
     width: 15vw;
     border-radius: 5px;
 }
-.search button{
+.topLevel button{
     color: mintcream;
     background-color: indigo;
     font-size: 1.1rem;
     border-radius: 5px;
     transition: 0.1s;
 }
-.search button:hover,.search a:hover{
+.genrebtn:hover{
     transform: scale(105%);
-    box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
-    cursor: pointer;
+    box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px; 
 }
 
-.search a{
+.topLevel input:focus{
+    transform: scale(105%);
+    box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
+}
+
+.genrebtn{
     margin-left: 10px;
     text-decoration: none;
     padding: 2px;
     font-size: 1.2rem;
     background-color: lime;
     border-radius: 5px;
+    cursor: pointer;
 
 }
 
@@ -77,7 +83,7 @@ main{
 .card{
     background-color: orchid;
     /* height: 300px; */
-    width: 200px;
+    width: 250px;
     margin: 0.8rem;
 
     transition: 0.2s;
@@ -161,33 +167,6 @@ main{
     cursor: pointer;
 }
 
-/*Pagination*/
-.pagination{
-    display:flex;
-    margin:10px 30px;
-    align-items: center;
-    justify-content: center;
-    color:white;
-}
-
-.page{
-    padding:20px;
-    cursor:pointer;
-}
-
-.page.disabled{
-    cursor:not-allowed;
-    color:grey;
-}
-
-.current{
-    padding: 10px 20px;
-    border-radius: 50%;
-    border: 5px solid orange;
-    font-size: 20px;
-    font-weight: 600;
-}
-
 /* The Overlay (background) */
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */   
@@ -203,22 +182,13 @@ main{
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
-/* Position the content inside the overlay */
-.overlay-content {
-  position: relative;
-  top: 25%; /* 25% from the top */
-  width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
+
 
 /* The navigation links inside the overlay */
 .overlay a {
-  padding: 8px;
   text-decoration: none;
-  font-size: 36px;
   color: #818181;
-  display: block; /* Display block instead of inline */
+  /* display: block; Display block instead of inline */
   transition: 0.3s; /* Transition effects on hover (color) */
 }
 
@@ -250,34 +220,30 @@ main{
 
 
 /* genre */
-#genre{
-    
-    background-color: rgba(0, 255, 0, 0.527);
-    height: 15vh;
-    width: 100%;
-    display: none;
-
-}
-
-.genreList{
-    padding: 10px;
+.newGenre{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    background-color: rgba(0, 255, 0, 0.527);
+    
+    display: none;
+    padding: 10px 9% 10px 9%;
 
 }
 
-.genreList a{
-    text-decoration: none;
-    color: #fff;
-    background-color: orangered;
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 5px;
+.tag{
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    background-color: rgba(251, 255, 0, 0.76);
+    border-radius: 50px;
+    
+
 }
 
-.genreList a:focus{
+.tag.highlight{
     background-color: rgb(25, 0, 255);
 }
 
@@ -287,29 +253,128 @@ main{
     justify-content: center;
 }
 
-#genreSubmit, #reset{
-    margin: 0 5px;
-    border-radius: 5px;
-    background-color: mediumblue;
+.reset{
+    margin: 10px 45%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(205, 0, 0);
     color: #fff;
     font-size: 1rem;
-
     cursor: pointer;
-    
 }
 
-#genreSubmit:hover, #reset:hover{
+.reset:hover{
     box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
 }
 
-#genreSubmit:active, #reset:active{
+.reset:active{
     background-color: mediumspringgreen;
     color: navy;
 }
 
+.pagination{
+    display:flex;
+    margin:10px 30px;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.page{
+    padding:20px;
+    cursor:pointer;
+}
+
+.page.disabled{
+    cursor:not-allowed;
+    color:grey;
+}
+
+.current{
+    padding: 10px 20px;
+    border-radius: 50%;
+    border: 5px solid orange;
+    font-size: 20px;
+    font-weight: 600;
+}
 
 
 
 
-/* main css */
+/* Position the content inside the overlay */
+.overlay-content {
+    color: azure;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    height: 100%;
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
 
+/* #title, .navGenre, .number,.cast, #navOverview, .link{
+    position: absolute;
+
+} */
+
+#overlay-content img{
+    width: 250px;
+    top: 0;
+    right:10%;
+    position: absolute;
+}
+
+#title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.grid{
+    display: grid;
+    text-align: center;
+    grid-template-rows: auto auto;
+}
+
+.grid img{
+    width: 600px;
+    height: 300px;
+    top: 0;
+    right:10%;
+    justify-self: center;
+    
+}
+
+.grid .top{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+#navOverview{
+    padding: 10%;
+}
+
+.green{
+    color:lightgreen !important;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.orange{
+    color:orange !important;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.red{
+    color:red !important;
+    font-size: 30px;
+    font-weight: 400;     
+}
+
+/* @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  } */
