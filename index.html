@@ -6,45 +6,35 @@
     <title>Movies World</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/81acd9fe16.js"></script>
 </head>
 <body>
+    <!-- loader -->
+    <div id="loader"></div>
+
+
     <header>
         <div class="nav">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
+            <a onclick="getMovies(API_URL)">Home</a>
             <a href="#">Contact Us</a>
         </div>
         
-        <div class="search">
+        <div class="topLevel">
             
-            <form action="#">
-                <input type="text" name="searching" id="search" placeholder="Enter Movie Name">
-                <button type="submit" onclick="searchMovie()">Search</button>
-
-
-                <a href="javascript:void(0)" class="genrebtn" onclick="toggleGenre()">Genre</a>
+            <form id="form">
+                <input type="text" class="search" id="search" placeholder="Enter Movie Name">
+               
             </form>
         </div>
-        
+         <!-- genre button -->
+        <button class="genrebtn" onclick="toggleGenre()">Genre</button>
     </header>
-    
-    <!-- The Genere -->
-    <div id="genre" class="genre">
-        <div class="genreList">
-            <a href="#">Action</a>
-            <a href="#">Action</a>
-            <a href="#">Action</a>
-            <a href="#">Action</a>
-            <a href="#">Action</a>
-            <a href="#">Action</a>
-            <a href="#">Action</a>
-        </div>
-        <div class="genrebuttons">
-            <button type="submit" id="genreSubmit">Submit</button>
-            <button type="reset" id="reset">Reset</button>
-        </div>
-    </div>
 
+    <!-- The Genere -->
+    <div id="tags" class="newGenre">
+        <!-- <div id="tag" class="highlight">Action</div> -->
+    </div>
+    
     <!-- The overlay -->
     <div id="myNav" class="overlay">
 
@@ -52,14 +42,14 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
         <!-- Overlay content -->
-        <div class="overlay-content"></div>
+        <div class="overlay-content" id="overlay-content"></div>
     
     </div>
     
     <!-- Use any element to open/show the overlay navigation menu -->
     <span onclick="openNav()"></span>
 
-    <main id="main">
+    <main id="main" onload="loading">
         <!-- <div class="card">
             <img src="" alt="">
             <div class="movie-info">
@@ -71,6 +61,29 @@
             </div>
         </div> -->
     </main>
+
+
+
+    <div id="pagination">
+        <div class="page" id="prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+    </div>
+
+
+
+    
 </body>
 <script src="script.js"></script>
+<script>
+    var loader = document.getElementById("loader").style;
+    var page = document.getElementById("pagination").style;
+
+    window.addEventListener("load", function(){
+        loader.display = "none";
+        page.display = "flex";
+    })
+</script>
 </html>
