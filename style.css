@@ -19,50 +19,88 @@ header{
     
     padding: 0 30px;
 }
+
+/* loader */
+
+#loader {
+    position: absolute;
+    display: block;
+    left: 45%;
+    top: 30%;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    border-left: 16px solid pink;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+  /* nav bar */
+
 .nav{
     
-    width: 400px; /*upto 800px */
+    width: 53%; /*upto 800px */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .nav a{
-    color: mintcream;
+    color: rgb(0, 4, 255);
     text-decoration: none;
+    cursor: pointer;
 }
 .nav a:hover{
     transform: scale(105%);
 }
 
-.search form{
+.topLevel form{
     display: flex;
 }
 #search{
     font-size: 1rem;
 }
-.search input{
+.topLevel input{
     width: 15vw;
     border-radius: 5px;
 }
-.search button{
+.topLevel button{
     color: mintcream;
     background-color: indigo;
     font-size: 1.1rem;
     border-radius: 5px;
     transition: 0.1s;
 }
-.search button:hover,.search a:hover{
+.genrebtn:hover{
     transform: scale(105%);
-    box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
-    cursor: pointer;
+    box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px; 
 }
 
-.search a{
+.topLevel input:focus{
+    transform: scale(105%);
+    box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
+}
+
+.genrebtn{
     margin-left: 10px;
     text-decoration: none;
-    padding: 2px;
+    padding: 5px;
     font-size: 1.2rem;
     background-color: lime;
     border-radius: 5px;
+    cursor: pointer;
 
 }
 
@@ -77,7 +115,7 @@ main{
 .card{
     background-color: orchid;
     /* height: 300px; */
-    width: 200px;
+    width: 250px;
     margin: 0.8rem;
 
     transition: 0.2s;
@@ -163,7 +201,7 @@ main{
 
 /* The Overlay (background) */
 .overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    
   height: 100%;
   width: 0;
   position: fixed; /* Stay in place */
@@ -176,22 +214,13 @@ main{
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
-/* Position the content inside the overlay */
-.overlay-content {
-  position: relative;
-  top: 25%; /* 25% from the top */
-  width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
+
 
 /* The navigation links inside the overlay */
 .overlay a {
-  padding: 8px;
   text-decoration: none;
-  font-size: 36px;
   color: #818181;
-  display: block; /* Display block instead of inline */
+  /* display: block; Display block instead of inline */
   transition: 0.3s; /* Transition effects on hover (color) */
 }
 
@@ -203,8 +232,8 @@ main{
 /* Position the close button (top right corner) */
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 10px;
+  right: 25px;
   font-size: 60px;
 }
 
@@ -214,7 +243,7 @@ main{
   .overlay .closebtn {
     font-size: 40px;
     top: 15px;
-    right: 35px;
+    right: 25px;
   }
 }
 
@@ -223,34 +252,30 @@ main{
 
 
 /* genre */
-#genre{
-    
-    background-color: rgba(0, 255, 0, 0.527);
-    height: 15vh;
-    width: 100%;
-    display: none;
-
-}
-
-.genreList{
-    padding: 10px;
+.newGenre{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    background-color: rgba(0, 255, 0, 0.527);
+    
+    display: none;
+    padding: 10px 9% 10px 9%;
 
 }
 
-.genreList a{
-    text-decoration: none;
-    color: #fff;
-    background-color: orangered;
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 5px;
+.tag{
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    background-color: rgba(251, 255, 0, 0.76);
+    border-radius: 50px;
+    
+
 }
 
-.genreList a:focus{
+.tag.highlight{
     background-color: rgb(25, 0, 255);
 }
 
@@ -260,29 +285,251 @@ main{
     justify-content: center;
 }
 
-#genreSubmit, #reset{
-    margin: 0 5px;
-    border-radius: 5px;
-    background-color: mediumblue;
+.reset{
+    margin: 10px 45%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(205, 0, 0);
     color: #fff;
     font-size: 1rem;
-
     cursor: pointer;
-    
 }
 
-#genreSubmit:hover, #reset:hover{
+.reset:hover{
+    background-color: rgb(218, 47, 47);
     box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
 }
 
-#genreSubmit:active, #reset:active{
+.tag:hover{
+    box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
     background-color: mediumspringgreen;
     color: navy;
 }
 
+#pagination{
+    display: none;
+    margin:10px 30px;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.page{
+    padding:20px;
+    cursor:pointer;
+    font-weight: 1000;
+    font-size: 30px;
+}
+
+.page.disabled{
+    cursor:not-allowed;
+    color:grey;
+}
+
+.current{
+    padding: 10px 20px;
+    border-radius: 50%;
+    border: 5px solid orange;
+    font-size: 20px;
+    font-weight: 600;
+}
 
 
 
 
-/* main css */
+/* Position the content inside the overlay */
+.overlay-content {
+    color: azure;
+    /* display: flex; */
+    justify-content: center;
+    position: relative;
+    top: 5%;
+    width: 100%; 
+    /* height: 100%; */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 
+    
+}
+
+
+#title{
+    font-family: cursive;
+    padding-bottom: 30px;
+    text-decoration: underline;
+    margin-left: 20px;
+    
+}
+
+#status{
+    margin: 10px 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#navGenre{
+    padding: 10px 0 20px 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.number{
+    margin: 30px 10px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.name{
+    color: white;
+    font-size: 20px;
+
+}
+
+#navOverview{
+    margin-left: 10%;
+    margin-top: 10%;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-style: italic;
+    text-indent: 10%;
+    text-align: justify;
+    border: 2px dotted white;
+}
+
+.grid{
+    display: grid;
+    text-align: center;
+    grid-template-rows: 0.2fr 0.1fr 0.2fr 0.2fr 0.3fr 0.4fr;
+    grid-template-columns: 1fr 1.2fr;
+
+    grid-template-areas: 
+    "title video"
+    
+    "status video"
+    "genre video"
+    "number video"
+    "overview video"
+    "cast cast"
+
+        
+    ;
+    
+}
+
+#title{
+    grid-area: title;
+}
+
+#video{
+    grid-area: video;
+}
+
+#status{
+    grid-area: status;
+}
+
+#navGenre{
+    grid-area: genre;
+}
+
+.number{
+    grid-area: number;
+}
+
+#navOverview{
+    grid-area: overview;
+}
+
+#actorlist{
+    grid-area: cast;
+}
+
+
+
+
+
+#actorlist{
+    
+    display: flex;
+    flex-wrap: wrap !important;
+
+    justify-content: center;
+    
+    align-items: center;
+}
+
+#cast{
+    font-size: 30px;
+}
+#actorlist a{
+    
+    margin: 10px;
+}
+
+#actorlist img{
+    width: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+
+
+.number.green, .number.orange, .number.red {
+    font-family: monospace;
+    font-size: 25px;
+    padding: 0;
+    margin: 0 30px;
+}
+.green{
+    color:lightgreen !important;
+    border-color: green;
+    font-weight: 400;
+}
+
+.orange{
+    color:orange !important;
+    border-color: orange;
+    font-weight: 400;
+}
+
+.red{
+    color:red !important;
+border-color: red;
+    font-weight: 400;     
+}
+
+
+
+
+
+@media only screen and (max-width: 900px) {
+    .grid{
+        display: grid;
+        grid-template-rows: 0.5fr 1fr 0.3fr 0.1fr 0.1fr 2fr 4fr;
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "title"
+            "video"
+            "status"
+            "genre"
+            "number"
+            "overview"
+            "cast"
+        ;
+    }
+
+    #navOverview{
+        margin: 5%
+    }
+
+
+
+  }
+
+  @media only screen and (min-width: 601px){
+    iframe{
+        width: 560px;
+        height: 315px;
+    }
+    
+  }
