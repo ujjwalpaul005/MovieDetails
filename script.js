@@ -326,7 +326,7 @@ function openNav(id) {
         
         if(site=='YouTube' && type=='Trailer' && official==true){
           trailer.push(`
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
         `)
           
@@ -335,7 +335,7 @@ function openNav(id) {
     }
     else{
       trailer.push(`
-      <img src="http://via.placeholder.com/315x560">
+      <img src="http://via.placeholder.com/560x315">
       `)
     }
   })
@@ -344,6 +344,7 @@ function openNav(id) {
   // MovieDetails within Overlay
   var gen = [];
   var col = '';
+  var adulting = '';
 
   fetch(BASE_URL+'/movie/'+id+'?'+API_KEY+'&language=en-us').then(resp => resp.json()).then(detail => {
       // console.log(detail);
@@ -351,52 +352,59 @@ function openNav(id) {
       genres.forEach(id =>{
           gen.push(id.name)
       })
+
+      if(adult==false){
+        adulting=`CBFC: "U/A"`;
+      } else{
+        adulting=`CBFC: "U"`;
+      }
+
       var content = document.getElementById("overlay-content");
 
       col = getColor(vote_average);
       content.innerHTML=`
 
       <div class="grid">
-        <div class="top">
-            <div class="left">
-                <h1 id="title">${title}</h1>
-                <h3 id="status">${status}, ${release_date}, ${adult}</h3>
-                <h4 class="navGenre" id="navGenre">${gen.join(', ')}</h4>
-                <span class="number ${col}">${vote_average}</span>
-                <span class="number">${parseInt(runtime/60)} Hours ${runtime%60} Minutes</span>
-        
-                <p id="navOverview">${overview}</p>
-            </div>
-            <div class="right">
-                <!-- <img src="picture.jpg" alt=""> -->
-                <div>${trailer[0]}</div>
-            </div>
-            <!-- <div class="left">
-                <h4 class="navGenre" id="navGenre">gen.join(', '</h4>
-                <span class="number">vote_averag</span>
-                <span class="number">____runtime/6</span>
-        
-                <p id="navOverview">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas, placeat voluptatibus aspernatur deserunt culpa quas, iste corrupti ipsum architecto reiciendis est assumenda nulla quis et, vero vitae sint incidunt? Obcaecati, facere. Sapiente, corporis iste. Eligendi laborum amet impedit dolorum? Iusto cumque tempora, dolore sunt modi molestiae. Odio, nisi sunt!</p>
-            </div> -->
-        </div>
+          <h1 id="title">${title}</h1>
+          <h3 id="status">${status} on ${release_date}, ${adulting}</h3>
+          <h4 class="navGenre" id="navGenre">${gen.join(', ')}</h4>
+          <span class="number ${col}">Rating: ${vote_average}</span>
+          <span class="number">Run Time: ${parseInt(runtime/60)} Hours ${runtime%60} Minutes</span>
+  
+          <p id="navOverview">${overview}</p>
 
-        <div class="bottom">
-            <div id="actorlist">
+          <!-- <img src="picture.jpg" alt=""> -->
+          <div id="video">${trailer[0]}</div>
+
+        
+          <div id="actorlist">
+            <div id="cast">Casts:</div>
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[0]}">
               <img src="${actPic[0]? IMG_URL+actPic[0]: "http://via.placeholder.com/650x580" }">
-              <a class="cast" href="https://en.wikipedia.org/wiki/${actList[0]}">${actList[0]}</a>
+              <div class="name">${actList[0]}</div>
+            </a>
+            
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[1]}">
               <img src="${actPic[1]? IMG_URL+actPic[1]: "http://via.placeholder.com/650x580" }">
-              <a class="cast" href="https://en.wikipedia.org/wiki/${actList[1]}">${actList[1]}</a>
+              <div class="name">${actList[1]}</div>
+            </a>
+            
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[2]}">
               <img src="${actPic[2]? IMG_URL+actPic[2]: "http://via.placeholder.com/650x580" }">
-              <a class="cast" href="https://en.wikipedia.org/wiki/${actList[2]}">${actList[2]}</a>
+              <div class="name">${actList[2]}</div>
+            </a>
+            
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[3]}">
               <img src="${actPic[3]? IMG_URL+actPic[3]: "http://via.placeholder.com/650x580" }">
-              <a class="cast" href="https://en.wikipedia.org/wiki/${actList[3]}">${actList[3]}</a>
+              <div class="name">${actList[3]}</div>
+            </a>
+            
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[4]}">
               <img src="${actPic[4]? IMG_URL+actPic[4]: "http://via.placeholder.com/650x580" }">
-              <a class="cast" href="https://en.wikipedia.org/wiki/${actList[4]}">${actList[4]}</a>
-            </div>
-            <a class="link" href="#"> Link to view in amazon video</a>
-            <a class="link" href="#"> Link to view in netflix video</a>
-        </div>
-    </div>
+              <div class="name">${actList[4]}</div>
+            </a>
+          </div>  
+      </div>
       
       `;
   })
@@ -407,4 +415,13 @@ function closeNav() {
   document.getElementById("myNav").style.width = "0%";
   var content = document.getElementById("overlay-content");
   content.innerHTML="";
+}
+
+function cardOff(idName){
+  var card = document.getElementById(idName).style;
+  card.display = "none"
+}
+function cardOn(idName){
+  var card = document.getElementById(idName).style;
+  card.display = "flex"
 }
