@@ -345,7 +345,6 @@ function openNav(id) {
   var gen = [];
   var col = '';
   var adulting = '';
-  
 
   fetch(BASE_URL+'/movie/'+id+'?'+API_KEY+'&language=en-us').then(resp => resp.json()).then(detail => {
       // console.log(detail);
@@ -354,13 +353,12 @@ function openNav(id) {
           gen.push(id.name)
       })
 
-      
-
       if(adult==false){
         adulting=`CBFC: "U/A"`;
       } else{
         adulting=`CBFC: "U"`;
       }
+
       var content = document.getElementById("overlay-content");
 
       col = getColor(vote_average);

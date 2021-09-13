@@ -303,6 +303,9 @@ main{
 
 .tag:hover{
     box-shadow: rgb(4, 0, 252) 0px 0px 20px 5px;
+}
+
+.reset:active{
     background-color: mediumspringgreen;
     color: navy;
 }
@@ -335,7 +338,13 @@ main{
     font-weight: 600;
 }
 
-
+.current{
+    padding: 10px 20px;
+    border-radius: 50%;
+    border: 5px solid orange;
+    font-size: 20px;
+    font-weight: 600;
+}
 
 
 /* Position the content inside the overlay */
@@ -410,8 +419,6 @@ main{
     "number video"
     "overview video"
     "cast cast"
-
-        
     ;
     
 }
@@ -480,21 +487,19 @@ main{
     padding: 0;
     margin: 0 30px;
 }
+
 .green{
     color:lightgreen !important;
-    border-color: green;
     font-weight: 400;
 }
 
 .orange{
     color:orange !important;
-    border-color: orange;
     font-weight: 400;
 }
 
 .red{
     color:red !important;
-border-color: red;
     font-weight: 400;     
 }
 
