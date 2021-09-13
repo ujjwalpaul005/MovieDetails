@@ -418,3 +418,12 @@ function closeNav() {
   var content = document.getElementById("overlay-content");
   content.innerHTML="";
 }
+
+function cardOff(idName){
+  var card = document.getElementById(idName).style;
+  card.display = "none"
+}
+function cardOn(idName){
+  var card = document.getElementById(idName).style;
+  card.display = "flex"
+}
