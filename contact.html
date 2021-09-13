@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies World</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/81acd9fe16.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="nav">
+            <a onclick="getMovies(API_URL)">Home</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        
+        <div class="topLevel">
+            
+            <form id="form">
+                <input type="text" class="search" id="search" placeholder="Enter Movie Name">
+               
+            </form>
+        </div>
+         <!-- genre button -->
+        <button class="genrebtn" onclick="toggleGenre()">Genre</button>
+    </header>
+
+    <!-- The Genere -->
+    <div id="tags" class="newGenre">
+        <!-- <div id="tag" class="highlight">Action</div> -->
+    </div>
+    
+    <div class="contact" id="contact">
+        <h1>Meet the movie-worms</h1>
+        <div class="box">
+            <div class="cardOne" id="cardOne"  onmouseover="cardOff(`cardTwo`)" onmouseout="cardOn(`cardTwo`)">
+                <img src="picture1.JPEG" alt="">
+                <p class="aboutName">Name1 Name</p>
+                <p class="aboutOne">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum asperiores qui accusamus nostrum aspernatur praesentium consequuntur laboriosam excepturi velit voluptates?</p>
+            </div>
+            <div class="cardTwo" id="cardTwo"  onmouseover="cardOff(`cardOne`)" onmouseout="cardOn(`cardOne`)">
+                <img src="picture2.JPEG alt="">
+                <p class="aboutName">Name2 Name</p>
+                <p class="aboutTwo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum asperiores qui accusamus nostrum aspernatur praesentium consequuntur laboriosam excepturi velit voluptates?</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="script.js"></script>
+<script>
+    var loader = document.getElementById("loader").style;
+    var page = document.getElementById("pagination").style;
+
+    window.addEventListener("load", function(){
+        loader.display = "none";
+        page.display = "flex";
+    })
+</script>
+</html>
