@@ -379,27 +379,27 @@ function openNav(id) {
         
           <div id="actorlist">
             <div id="cast">Casts:</div>
-            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[0]}">
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[0]}" target="_blank">
               <img src="${actPic[0]? IMG_URL+actPic[0]: "http://via.placeholder.com/650x580" }">
               <div class="name">${actList[0]}</div>
             </a>
             
-            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[1]}">
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[1]}" target="_blank">
               <img src="${actPic[1]? IMG_URL+actPic[1]: "http://via.placeholder.com/650x580" }">
               <div class="name">${actList[1]}</div>
             </a>
             
-            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[2]}">
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[2]}" target="_blank">
               <img src="${actPic[2]? IMG_URL+actPic[2]: "http://via.placeholder.com/650x580" }">
               <div class="name">${actList[2]}</div>
             </a>
             
-            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[3]}">
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[3]}" target="_blank">
               <img src="${actPic[3]? IMG_URL+actPic[3]: "http://via.placeholder.com/650x580" }">
               <div class="name">${actList[3]}</div>
             </a>
             
-            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[4]}">
+            <a class="cast" href="https://en.wikipedia.org/wiki/${actList[4]}" target="_blank">
               <img src="${actPic[4]? IMG_URL+actPic[4]: "http://via.placeholder.com/650x580" }">
               <div class="name">${actList[4]}</div>
             </a>
